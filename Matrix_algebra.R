@@ -240,3 +240,55 @@ sigmaSq
 
 as.vector(sigmaSq) * xTxInverse
 #var_cov matrix
+
+#-------------Multivariate: Eigenvalues and Eigenvectors---------------
+# proving (A - λI)a = 0 or 0 column vector in 2 X 2 matrix
+
+matrixA1 <- matrix(c(3,1,1,2), nrow = 2, byrow = T)
+matrixA1
+
+IdentityMat <- matrix(c(1,0,0,1), nrow=2, byrow = T)
+IdentityMat
+
+eigen(matrixA1)
+# gives eigenvalues and eigenvectors
+
+eigenMat <- matrix(c(3.618034, 1.381966), byrow = T)
+eigenMat
+#2 values of eigenvalues
+
+3.618034*IdentityMat  
+
+matrixA1 - (3.618034*IdentityMat)
+
+eigenVect <- matrix(c(-0.8506508, -0.5257311))
+eigenVect
+
+(matrixA1 - (3.618034*IdentityMat)) %*% eigenVect 
+#gives 0 column vector
+
+# 3 X 3 matrix
+matrixA <- matrix(c(3,2,4,7,5,0,1,0,8),ncol=3,byrow=T) 
+matrixA
+
+matrixB <- matrix(c(6,1,0,2,8,7,3,4,5),ncol=3,byrow=T) 
+
+det(matrixA)
+
+eigen(matrixA)
+
+IdentityMatrix <- matrix(c(1,0,0,0,1,0,0,0,1), nrow=3, byrow = T)
+IdentityMatrix
+
+eigenVal <- matrix(c(9.3079687, 6.8794331, -0.1874018))
+eigenVal
+
+9.3079687 * IdentityMatrix
+
+matrixA - (9.3079687 * IdentityMatrix)
+
+eigenVector <- matrix(c(-0.4865150, -0.7905361, -0.3719622))
+
+(matrixA - (9.3079687 * IdentityMatrix)) %*%  eigenVector
+# 0 column vector 
+
